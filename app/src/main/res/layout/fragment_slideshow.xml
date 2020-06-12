@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.slideshow.SlideshowFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/uao3"
+        android:scaleType="centerCrop"
+        android:alpha="0.3"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="30dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@drawable/uao_v"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:paddingTop="40dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/userIcon"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_person_black_24dp"
+            tools:ignore="VectorDrawableCompat" />
+
+        <EditText
+            android:id="@+id/user"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:background="@drawable/txt_redondeado_trans_negro"
+            android:hint="Usuario"
+            android:textColorHint="#000"
+            android:paddingLeft="15dp"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/lockIcon"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_lock_black_24dp"
+            tools:ignore="VectorDrawableCompat" />
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:background="@drawable/txt_redondeado_trans_negro"
+            android:hint="Contraseña"
+            android:textColorHint="#000"
+            android:paddingLeft="15dp"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/rolIcon"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            app:srcCompat="@drawable/ic_build_black_24dp"
+            tools:ignore="VectorDrawableCompat"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/sRol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Seleccionar Rol"
+                android:textColor="#000"/>
+
+            <Spinner
+                android:id="@+id/spinnerRol"
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:layout_marginTop="150dp"
+            android:layout_weight="1"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/insertar"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_insert"
+            android:background="@drawable/btn_cuadrado"
+            android:textColor="#757373"
+            android:textStyle="bold"
+            android:drawableTint="#757373"
+            android:text="Insertar"/>
+
+        <Button
+            android:id="@+id/buscar"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_search"
+            android:background="@drawable/btn_cuadrado"
+            android:textColor="#757373"
+            android:textStyle="bold"
+            android:drawableTint="#757373"
+            android:text="Buscar"/>
+
+
+            <Button
+                android:id="@+id/editar"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_build_black_24dp"
+                android:background="@drawable/btn_cuadrado"
+                android:textColor="#757373"
+                android:textStyle="bold"
+                android:drawableTint="#757373"
+                android:text="Editar"/>
+
+            <Button
+                android:id="@+id/eliminar"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_delete"
+                android:background="@drawable/btn_cuadrado"
+                android:textColor="#757373"
+                android:textStyle="bold"
+                android:drawableTint="#757373"
+                android:text="Eliminar"/>
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

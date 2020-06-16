@@ -20,18 +20,20 @@ import java.util.List;
 public class CRUDConte {
 
     //Inserta los datos del Contenedor en el servidor.
-    public boolean insertar(String capacidad, String color, String contenido, String ubicacion){
+    public boolean insertar(String capacidad, String color, String contenido, String ubicacion, String latitud, String longitud){
         HttpClient httpclient;
         List<NameValuePair> nameValuePairs;
         HttpPost httppost;
         httpclient=new DefaultHttpClient();
         httppost= new HttpPost(Ruta.URL + "contenedores/insertar_conte.php"); // Url del Servidor
         //Añadimos nuestros datos
-        nameValuePairs = new ArrayList<NameValuePair>(4);
+        nameValuePairs = new ArrayList<NameValuePair>(6);
         nameValuePairs.add(new BasicNameValuePair("capacidad",capacidad.trim()));
         nameValuePairs.add(new BasicNameValuePair("color",color.trim()));
         nameValuePairs.add(new BasicNameValuePair("contenido",contenido.trim()));
         nameValuePairs.add(new BasicNameValuePair("ubicacion",ubicacion.trim()));
+        nameValuePairs.add(new BasicNameValuePair("latitud",ubicacion.trim()));
+        nameValuePairs.add(new BasicNameValuePair("longitud",ubicacion.trim()));
 
         try {
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));

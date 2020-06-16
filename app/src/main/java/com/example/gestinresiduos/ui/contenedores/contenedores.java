@@ -87,6 +87,8 @@ public class contenedores extends Fragment {
                 if(!capacidad.getText().toString().trim().equalsIgnoreCase("")&&
                         !spinnerColor.getSelectedItem().toString().trim().equalsIgnoreCase("Seleccione un Color")&&
                         !contenido.getText().toString().trim().equalsIgnoreCase("")&&
+                        !latitud.getText().toString().trim().equalsIgnoreCase("")&&
+                        !longitud.getText().toString().trim().equalsIgnoreCase("")&&
                         !ubicacion.getText().toString().trim().equalsIgnoreCase(""))
 
                     new contenedores.Insertar(getActivity()).execute();
@@ -265,6 +267,8 @@ public class contenedores extends Fragment {
         String Color = spinnerColor.getSelectedItem().toString().trim();
         String Contenido = contenido.getText().toString().trim();
         String Ubicacion = ubicacion.getText().toString().trim();
+        String Latitud = latitud.getText().toString().trim();
+        String Longitud = longitud.getText().toString().trim();
 
         Insertar(Activity context){
             this.context=context;
@@ -273,7 +277,7 @@ public class contenedores extends Fragment {
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
 
-            if(crud.insertar(Capacidad, Color, Contenido, Ubicacion))
+            if(crud.insertar(Capacidad, Color, Contenido, Ubicacion, Latitud, Longitud))
                 context.runOnUiThread(new Runnable(){
                     @Override
                     public void run() {
@@ -282,6 +286,8 @@ public class contenedores extends Fragment {
                         spinnerColor.setSelection(0);
                         contenido.setText("");
                         ubicacion.setText("");
+                        latitud.setText("");
+                        longitud.setText("");
                         Toast.makeText(context, "Contenedor insertado con éxito", Toast.LENGTH_LONG).show();
                     }
                 });

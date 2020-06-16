@@ -24,150 +24,185 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="30dp"
+            android:paddingTop="20dp"
             android:layout_gravity="center">
 
             <ImageView
                 android:id="@+id/logo"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/uao_v"
                 android:layout_gravity="center"/>
 
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/keyIcon"
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_vpn_key_black_24dp"
-            tools:ignore="VectorDrawableCompat"/>
+            <ImageView
+                android:id="@+id/keyIcon"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_vpn_key_black_24dp"
+                tools:ignore="VectorDrawableCompat"/>
 
-        <EditText
-            android:id="@+id/id"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:background="@drawable/txt_redondeado_trans_negro"
-            android:hint="Id (No usar para insertar)"
-            android:textColorHint="#000"
-            android:paddingLeft="15dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_color_lens_black_24dp"
-            tools:ignore="VectorDrawableCompat"/>
+            <EditText
+                android:id="@+id/id"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/txt_redondeado_trans_negro"
+                android:hint="Id (No usar para insertar)"
+                android:textColorHint="#000"
+                android:paddingLeft="15dp"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
 
-            android:orientation="vertical">
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_color_lens_black_24dp"
+                android:contentDescription="Color"
+                tools:ignore="VectorDrawableCompat"/>
 
-            <TextView
-                android:layout_width="118dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:gravity="center_horizontal"
-                android:text="Color"
-                android:textColor="#000"/>
-
-            <Spinner
-                android:id="@+id/spinnerColor"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"/>
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="118dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center_horizontal"
+                    android:text="Color"
+                    android:textColor="#000"/>
+
+                <Spinner
+                    android:id="@+id/spinnerColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_add_circle_black_24dp"
+                tools:ignore="VectorDrawableCompat"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/txt_redondeado_trans_negro"
+                android:hint="Capacidad"
+                android:textColorHint="#000"
+                android:paddingLeft="15dp"
+                android:id="@+id/capacidad"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_inbox_black_24dp"
+                tools:ignore="VectorDrawableCompat"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/txt_redondeado_trans_negro"
+                android:hint="Contenido"
+                android:textColorHint="#000"
+                android:paddingLeft="15dp"
+                android:id="@+id/contenido"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_place_black_24dp"
+                tools:ignore="VectorDrawableCompat"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/txt_redondeado_trans_negro"
+                android:hint="Nombre de la ubicación"
+                android:textColorHint="#000"
+                android:paddingLeft="15dp"
+                android:id="@+id/etUbicacion"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_place_black_24dp"
+                tools:ignore="VectorDrawableCompat"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/txt_redondeado_trans_negro"
+                android:hint="Latitud"
+                android:textColorHint="#000"
+                android:paddingLeft="15dp"
+                android:id="@+id/latitud"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/txt_redondeado_trans_negro"
+                android:hint="Longitud"
+                android:textColorHint="#000"
+                android:paddingLeft="15dp"
+                android:id="@+id/longitud"/>
 
         </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_add_circle_black_24dp"
-            tools:ignore="VectorDrawableCompat"/>
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:background="@drawable/txt_redondeado_trans_negro"
-            android:hint="Capacidad"
-            android:textColorHint="#000"
-            android:paddingLeft="15dp"
-            android:id="@+id/capacidad"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_inbox_black_24dp"
-            tools:ignore="VectorDrawableCompat"/>
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:background="@drawable/txt_redondeado_trans_negro"
-            android:hint="Contenido"
-            android:textColorHint="#000"
-            android:paddingLeft="15dp"
-            android:id="@+id/contenido"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_place_black_24dp"
-            tools:ignore="VectorDrawableCompat"/>
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:background="@drawable/txt_redondeado_trans_negro"
-            android:hint="Ubicación"
-            android:textColorHint="#000"
-            android:paddingLeft="15dp"
-            android:id="@+id/etUbicacion"/>
-    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="40dp"
+            android:paddingTop="0dp"
             android:layout_margin="10dp"
             android:orientation="horizontal"
             android:gravity="center_horizontal">
@@ -189,59 +224,59 @@
                 android:text="Siguiente"/>
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal">
 
-        <Button
-            android:id="@+id/insertar"
-            android:layout_width="90dp"
-            android:layout_height="match_parent"
-            android:drawableTop="@drawable/ic_insert"
-            android:background="@drawable/btn_cuadrado"
-            android:textColor="#757373"
-            android:textStyle="bold"
-            android:drawableTint="#757373"
-            android:text="Insertar"/>
+            <Button
+                android:id="@+id/insertar"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/ic_insert"
+                android:background="@drawable/btn_cuadrado"
+                android:textColor="#757373"
+                android:textStyle="bold"
+                android:drawableTint="#757373"
+                android:text="Insertar"/>
 
-        <Button
-            android:id="@+id/buscar"
-            android:layout_width="90dp"
-            android:layout_height="match_parent"
-            android:drawableTop="@drawable/ic_search"
-            android:background="@drawable/btn_cuadrado"
-            android:textColor="#757373"
-            android:textStyle="bold"
-            android:drawableTint="#757373"
-            android:text="Buscar"/>
+            <Button
+                android:id="@+id/buscar"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/ic_search"
+                android:background="@drawable/btn_cuadrado"
+                android:textColor="#757373"
+                android:textStyle="bold"
+                android:drawableTint="#757373"
+                android:text="Buscar"/>
 
-        <Button
-            android:id="@+id/editar"
-            android:layout_width="90dp"
-            android:layout_height="match_parent"
-            android:drawableTop="@drawable/ic_build_black_24dp"
-            android:background="@drawable/btn_cuadrado"
-            android:textColor="#757373"
-            android:textStyle="bold"
-            android:drawableTint="#757373"
-            android:text="Editar"/>
+            <Button
+                android:id="@+id/editar"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/ic_build_black_24dp"
+                android:background="@drawable/btn_cuadrado"
+                android:textColor="#757373"
+                android:textStyle="bold"
+                android:drawableTint="#757373"
+                android:text="Editar"/>
 
-        <Button
-            android:id="@+id/eliminar"
-            android:layout_width="90dp"
-            android:layout_height="match_parent"
-            android:drawableTop="@drawable/ic_delete"
-            android:background="@drawable/btn_cuadrado"
-            android:textColor="#757373"
-            android:textStyle="bold"
-            android:drawableTint="#757373"
-            android:text="Eliminar"/>
-    </LinearLayout>
+            <Button
+                android:id="@+id/eliminar"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/ic_delete"
+                android:background="@drawable/btn_cuadrado"
+                android:textColor="#757373"
+                android:textStyle="bold"
+                android:drawableTint="#757373"
+                android:text="Eliminar"/>
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

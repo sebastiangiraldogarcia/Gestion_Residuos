@@ -36,6 +36,8 @@ public class contenedores extends Fragment {
     private EditText capacidad;
     private EditText contenido;
     private EditText ubicacion;
+    private EditText latitud;
+    private EditText longitud;
 
     private List<Contenedores> listaConte;
 
@@ -62,6 +64,8 @@ public class contenedores extends Fragment {
         capacidad = (EditText) view.findViewById(R.id.capacidad);
         contenido = (EditText) view.findViewById(R.id.contenido);
         ubicacion = (EditText) view.findViewById(R.id.etUbicacion);
+        latitud = (EditText) view.findViewById(R.id.latitud);
+        longitud = (EditText) view.findViewById(R.id.longitud);
         spinnerColor = (Spinner) view.findViewById(R.id.spinnerColor);
 
         listaConte=new ArrayList<Contenedores>();

@@ -74,8 +74,13 @@ public class HomeFragment extends Fragment {
         ArrayAdapter<String> adapterP = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, opcionesPeso);
         spinnerPeso.setAdapter(adapterP);
 
-        user = getArguments().getString("user");
-        rol = getArguments().getString("rol");
+        Bundle b = this.getArguments();
+
+        if(b != null){
+            rol = getArguments().getString("rol");
+            user = getArguments().getString("user");
+        }
+
         color = "sin info";
         peso = 0;
 

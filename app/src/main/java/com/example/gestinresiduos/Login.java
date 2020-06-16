@@ -37,6 +37,7 @@ public class Login extends AppCompatActivity {
     private EditText pass;
     private Button enter;
     private List<Usuarios> listaUsers;
+    Bundle bundle = new Bundle();
 
 
     @Override
@@ -66,8 +67,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        Bundle bundle = new Bundle();
-        bundle.putString("user", "From Login");
         // set Fragmentclass Arguments
         HomeFragment fragobj = new HomeFragment();
         fragobj.setArguments(bundle);
@@ -144,10 +143,14 @@ public class Login extends AppCompatActivity {
                         if(rol.equals("Administrador")){
                             Intent i = new Intent(Login.this, MainActivity.class);
                             i.putExtra("rol",listaUsers.get(0).getRol().trim());
+                            i.putExtra("user",listaUsers.get(0).getUsername().trim());
+                            bundle.putString("user", "From Login");
                             startActivity(i);
                         }else{
                             Intent i = new Intent(Login.this, MainActivity.class);
+                            i.putExtra("rol",listaUsers.get(0).getRol().trim());
                             i.putExtra("user", listaUsers.get(0).getUsername().trim());
+                            bundle.putString("user", "From Login");
                             startActivity(i);
                         }
 
@@ -159,7 +162,6 @@ public class Login extends AppCompatActivity {
                     public void run() {
                         // TODO Auto-generated method stub
                         Toast.makeText(context, "Verifique su usario y contraseña", Toast.LENGTH_LONG).show();
-
                     }
                 });
             return null;

@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
 
     private String admin;
+    private String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         admin = getIntent().getStringExtra("rol");
+        user = getIntent().getStringExtra("user");
 
         if(admin.equals("Administrador")) {
             navigationView.getMenu().setGroupVisible(R.id.group_admin, true);

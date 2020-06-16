@@ -40,12 +40,12 @@ public class UsuariosQR extends AppCompatActivity implements View.OnClickListene
         btScan1 = findViewById(R.id.btScan);
         btScan1.setOnClickListener(this);
 
-        btEliminar1 = findViewById(R.id.btEliminar);
+        //btEliminar1 = findViewById(R.id.btEliminar);
         btEliminar1.setOnClickListener(this);
 
         insertar = findViewById(R.id.insertar);
 
-        btGuardar1 = findViewById(R.id.btGuardar);
+        //btGuardar1 = findViewById(R.id.btGuardar);
         btGuardar1.setOnClickListener(this);
 
         etUbicacion = findViewById(R.id.etUbicacion);

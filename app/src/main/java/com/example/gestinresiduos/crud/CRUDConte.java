@@ -32,8 +32,8 @@ public class CRUDConte {
         nameValuePairs.add(new BasicNameValuePair("color",color.trim()));
         nameValuePairs.add(new BasicNameValuePair("contenido",contenido.trim()));
         nameValuePairs.add(new BasicNameValuePair("ubicacion",ubicacion.trim()));
-        nameValuePairs.add(new BasicNameValuePair("latitud",ubicacion.trim()));
-        nameValuePairs.add(new BasicNameValuePair("longitud",ubicacion.trim()));
+        nameValuePairs.add(new BasicNameValuePair("latitud",latitud.trim()));
+        nameValuePairs.add(new BasicNameValuePair("longitud",longitud.trim()));
 
         try {
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
@@ -80,19 +80,21 @@ public class CRUDConte {
     }
 
     //Edita los datos de nuestro servidor
-    public boolean editar(String id, String capacidad, String color, String contenido, String ubicacion){
+    public boolean editar(String id, String capacidad, String color, String contenido, String ubicacion, String latitud, String longitud){
         HttpClient httpclient;
         List<NameValuePair> nameValuePairs;
         HttpPost httppost;
         httpclient=new DefaultHttpClient();
         httppost= new HttpPost(Ruta.URL + "contenedores/editar_conte.php"); // Url del Servidor
         //Añadimos nuestros datos
-        nameValuePairs = new ArrayList<NameValuePair>(5);
+        nameValuePairs = new ArrayList<NameValuePair>(7);
         nameValuePairs.add(new BasicNameValuePair("id",id.trim()));
         nameValuePairs.add(new BasicNameValuePair("capacidad",capacidad.trim()));
         nameValuePairs.add(new BasicNameValuePair("color",color.trim()));
         nameValuePairs.add(new BasicNameValuePair("contenido",contenido.trim()));
         nameValuePairs.add(new BasicNameValuePair("ubicacion",ubicacion.trim()));
+        nameValuePairs.add(new BasicNameValuePair("latitud",latitud.trim()));
+        nameValuePairs.add(new BasicNameValuePair("longitud",longitud.trim()));
 
         try {
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));

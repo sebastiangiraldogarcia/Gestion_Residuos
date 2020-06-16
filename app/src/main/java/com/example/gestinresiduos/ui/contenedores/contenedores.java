@@ -192,9 +192,7 @@ public class contenedores extends Fragment {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 if(!id.getText().toString().trim().equalsIgnoreCase("")){
-
                     new contenedores.Eliminar(getActivity()).execute();
-
                 }else
                     Toast.makeText(getActivity(), "Asegurese de escrbir el id del contenedor a eliminar",
                             Toast.LENGTH_LONG).show();
@@ -392,6 +390,8 @@ public class contenedores extends Fragment {
         String Color = spinnerColor.getSelectedItem().toString().trim();
         String Contenido = contenido.getText().toString().trim();
         String Ubicacion = ubicacion.getText().toString().trim();
+        String Latitud = latitud.getText().toString().trim();
+        String Longitud = longitud.getText().toString().trim();
 
         Editar(Activity context) {
             this.context = context;
@@ -400,7 +400,7 @@ public class contenedores extends Fragment {
         @Override
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
-            if (crud.editar(Id, Capacidad, Color, Contenido, Ubicacion))
+            if (crud.editar(Id, Capacidad, Color, Contenido, Ubicacion, Latitud, Longitud))
                 context.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -410,6 +410,8 @@ public class contenedores extends Fragment {
                         spinnerColor.setSelection(0);
                         contenido.setText("");
                         ubicacion.setText("");
+                        latitud.setText("");
+                        longitud.setText("");
                         Toast.makeText(context, "Contenedor editado con éxito", Toast.LENGTH_LONG).show();
                     }
                 });

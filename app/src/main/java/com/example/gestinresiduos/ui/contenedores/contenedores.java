@@ -215,6 +215,8 @@ public class contenedores extends Fragment {
                 capacidad.setText(conte.getCapacidad());
                 contenido.setText(conte.getContenido());
                 ubicacion.setText(conte.getUbicacion());
+                latitud.setText(conte.getLatitud());
+                longitud.setText(conte.getLongitud());
                 if(conte.getColor().trim().equals("Amarillo")){
                     spinnerColor.setSelection(1);
                 }else if(conte.getColor().trim().equals("Azul")){

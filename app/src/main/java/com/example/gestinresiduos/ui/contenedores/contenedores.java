@@ -171,6 +171,8 @@ public class contenedores extends Fragment {
                 if(!capacidad.getText().toString().trim().equalsIgnoreCase("")&&
                         !spinnerColor.getSelectedItem().toString().trim().equalsIgnoreCase("Seleccione un Color")&&
                         !contenido.getText().toString().trim().equalsIgnoreCase("")&&
+                        !latitud.getText().toString().trim().equalsIgnoreCase("")&&
+                        !longitud.getText().toString().trim().equalsIgnoreCase("")&&
                         !ubicacion.getText().toString().trim().equalsIgnoreCase("")){
                     new Traer_conte(getActivity()).execute();
                 }else{
@@ -245,6 +247,8 @@ public class contenedores extends Fragment {
                 conte.setCapacidad(datosConte[2]);
                 conte.setContenido(datosConte[3]);
                 conte.setUbicacion(datosConte[4]);
+                conte.setLatitud(datosConte[5]);
+                conte.setLongitud(datosConte[6]);
                 listaConte.add(conte);
             }
             return true;

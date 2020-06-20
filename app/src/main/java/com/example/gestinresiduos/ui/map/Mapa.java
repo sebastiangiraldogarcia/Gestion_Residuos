@@ -72,16 +72,20 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.mapa_fragment, container, false);
 
+        listaConte=new ArrayList<ubiConte>();
+        crud=new CRUDUbiConte();
+
+        new Mapa.LatLng(getActivity()).execute();
+
         mapView = view.findViewById(R.id.map1);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMapReady(@NonNull final MapboxMap mapboxMap) {//start
-
-                new LatLng(getActivity()).execute();
+            public void onMapReady(@NonNull final MapboxMap mapboxMap) {
+                //start
 
                 List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
-                symbolLayerIconFeatureList.add(Feature.fromGeometry(Point.fromLngLat(-57.225365, -33.213144)));
+                symbolLayerIconFeatureList.add(Feature.fromGeometry(Point.fromLngLat(-76.522545, 3.3522579)));
                 for (int i = 0; i < listaConte.size(); i++) {
                     symbolLayerIconFeatureList.add(Feature.fromGeometry(
                             Point.fromLngLat(Double.parseDouble(listaConte.get(i).getLongitud()),

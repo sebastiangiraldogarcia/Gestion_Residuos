@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private String admin;
     private String user;
 
+    Menu m;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,14 +55,17 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         Bundle p = getIntent().getExtras();
-        admin = p.getString("rol");
-        user = p.getString("user");
-
-        if(admin.equals("Administrador")) {
-            navigationView.getMenu().setGroupVisible(R.id.group_admin, true);
+        if(p != null) {
+            admin = p.getString("rol");
+            user = p.getString("user");
+        }
+        if(admin.equals("Usuario")) {
+            m = navigationView.getMenu();
+            m.setGroupVisible(R.id.group_admin, false);
         }
         else {
-            navigationView.getMenu().setGroupVisible(R.id.group_admin, false);
+            m = navigationView.getMenu();
+            m.setGroupVisible(R.id.group_admin, true);
         }
     }
 

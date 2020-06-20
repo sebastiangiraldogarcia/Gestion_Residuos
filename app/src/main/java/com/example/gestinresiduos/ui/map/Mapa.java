@@ -90,9 +90,11 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
                         new LatLng(getActivity()).execute();
 
                         List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
-                        symbolLayerIconFeatureList.add(Feature.fromGeometry(
-                                Point.fromLngLat(-57.225365, -33.213144)));
-
+                        for (int i = 0; i <= listaConte.size(); i++) {
+                            symbolLayerIconFeatureList.add(Feature.fromGeometry(
+                        //Point.fromLngLat(-57.225365, -33.213144)));
+                                Point.fromLngLat(Double.parseDouble(listaConte.get(i).getLatitud()),Double.parseDouble(listaConte.get(i).getLongitud()))));
+                        }
                         mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/mapbox/cjf4m44iw0uza2spb3q0a7s41")
 
                                 // Add the SymbolLayer icon image to the map style
@@ -194,12 +196,12 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
 
-            if (conte())
+            if (conte_existe())
                 context.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         // TODO Auto-generated method stub
-                        conte(posicion);
+                        conte_existe();
                     }
                 });
             else
@@ -212,4 +214,23 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
             return null;
         }
     }
+
+    private boolean conte_existe(){
+        listaConte.clear();
+
+        if(!crud.LatLng("a","a","a").equalsIgnoreCase("")){
+            String [] cargarDatos=crud.LatLng("a","a","a").split("/");
+            for (int i = 0; i < cargarDatos.length; i++) {
+                String datosConte[]=cargarDatos[i].split("<br>");
+                ubiConte conte=new ubiConte();
+                conte.setUbicacion(datosConte[0]);
+                conte.setLatitud(datosConte[1]);
+                conte.setLongitud(datosConte[2]);
+                listaConte.add(conte);
+            }
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.gestinresiduos.MainActivity;
 import com.example.gestinresiduos.R;
 import com.example.gestinresiduos.UsuariosQR;
 import com.example.gestinresiduos.crud.CRUDResi;
@@ -74,11 +75,15 @@ public class HomeFragment extends Fragment {
         ArrayAdapter<String> adapterP = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, opcionesPeso);
         spinnerPeso.setAdapter(adapterP);
 
-        Bundle b = this.getArguments();
+        MainActivity activity = (MainActivity)getActivity();
+
+        Bundle b = activity.getMyData();
+
+        Log.d("lat", b.getString("user"));
 
         if(b != null){
-            rol = getArguments().getString("rol");
-            user = getArguments().getString("user");
+            //rol = getArguments().getString("rol");
+            user = b.getString("user");
         }
 
         color = "sin info";
@@ -165,7 +170,7 @@ public class HomeFragment extends Fragment {
                 contenidoConte = datosConte[1];
                 capacidadConte = datosConte[2];
             }
-            Log.d("rol", contenidoConte);
+            Log.d("idConte", idConte);
             int capacidad = Integer.parseInt(capacidadConte.trim());
             int contenido = Integer.parseInt(contenidoConte.trim());
             if(contenido+peso <= capacidad){

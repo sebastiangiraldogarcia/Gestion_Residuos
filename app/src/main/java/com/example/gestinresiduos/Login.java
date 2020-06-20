@@ -70,8 +70,8 @@ public class Login extends AppCompatActivity {
         });
 
         // set Fragmentclass Arguments
-        HomeFragment fragobj = new HomeFragment();
-        fragobj.setArguments(bundle);
+        //HomeFragment fragobj = new HomeFragment();
+        //fragobj.setArguments(bundle);
 
     }
 
@@ -146,13 +146,13 @@ public class Login extends AppCompatActivity {
                             Intent i = new Intent(Login.this, MainActivity.class);
                             i.putExtra("rol",listaUsers.get(0).getRol().trim());
                             i.putExtra("user",listaUsers.get(0).getUsername().trim());
-                            bundle.putString("user", "From Login");
+                            //bundle.putString("user", "From Login");
                             startActivity(i);
                         }else{
                             Intent i = new Intent(Login.this, MainActivity.class);
                             i.putExtra("rol",listaUsers.get(0).getRol().trim());
                             i.putExtra("user", listaUsers.get(0).getUsername().trim());
-                            bundle.putString("user", "From Login");
+                            //bundle.putString("user", "From Login");
                             startActivity(i);
                         }
 

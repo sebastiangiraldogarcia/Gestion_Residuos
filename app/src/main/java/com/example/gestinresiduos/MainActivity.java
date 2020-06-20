@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.gestinresiduos.ui.home.HomeFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private String admin;
     private String user;
 
-    Menu m;
+    Bundle bundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,14 +64,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(admin.equals("Usuario")) {
-            Log.e("roll", admin);
             navigationView.getMenu().setGroupVisible(R.id.group_admin,false);//to hide
-            //m = navigationView.getMenu();
-            //m.setGroupVisible(R.id.group_admin, false);
         }
         else {
             navigationView.getMenu().setGroupVisible(R.id.group_admin,true);//to hide
         }
+
+        /*bundle.putString("user", user );
+        HomeFragment fragInfo = new HomeFragment();
+        fragInfo.setArguments(bundle);*/
+
     }
 
     @Override
@@ -86,4 +89,11 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    public Bundle getMyData() {
+        Bundle hm = new Bundle();
+        hm.putString("user",user);
+        return hm;
+    }
+
 }

@@ -225,18 +225,19 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="115dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
-            android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:layout_alignParentBottom="true"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal|bottom"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/insertar"
                 android:layout_width="90dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:drawableTop="@drawable/ic_insert"
                 android:background="@drawable/btn_cuadrado"
                 android:textColor="#757373"
@@ -247,7 +248,7 @@
             <Button
                 android:id="@+id/buscar"
                 android:layout_width="90dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:drawableTop="@drawable/ic_search"
                 android:background="@drawable/btn_cuadrado"
                 android:textColor="#757373"
@@ -258,7 +259,7 @@
             <Button
                 android:id="@+id/editar"
                 android:layout_width="90dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:drawableTop="@drawable/ic_build_black_24dp"
                 android:background="@drawable/btn_cuadrado"
                 android:textColor="#757373"
@@ -269,7 +270,7 @@
             <Button
                 android:id="@+id/eliminar"
                 android:layout_width="90dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:drawableTop="@drawable/ic_delete"
                 android:background="@drawable/btn_cuadrado"
                 android:textColor="#757373"

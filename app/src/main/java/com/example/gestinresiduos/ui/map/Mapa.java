@@ -27,6 +27,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,6 +75,8 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
 
         listaConte=new ArrayList<ubiConte>();
         crud=new CRUDUbiConte();
+        listaConte = new ArrayList<ubiConte>();
+        crud = new CRUDUbiConte();
 
         new Mapa.LatLng(getActivity()).execute();
 
@@ -86,6 +89,11 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
 
                 List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
                 symbolLayerIconFeatureList.add(Feature.fromGeometry(Point.fromLngLat(-76.522545, 3.3522579)));
+
+            public void onMapReady(@NonNull final MapboxMap mapboxMap) {//start
+                List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
+                symbolLayerIconFeatureList.add(Feature.fromGeometry(Point.fromLngLat(-76.522545, 3.353678)));
+
                 for (int i = 0; i < listaConte.size(); i++) {
                     symbolLayerIconFeatureList.add(Feature.fromGeometry(
                             Point.fromLngLat(Double.parseDouble(listaConte.get(i).getLongitud()),
@@ -195,7 +203,6 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
                     @Override
                     public void run() {
                         // TODO Auto-generated method stub
-                        conte_existe();
                     }
                 });
             else
@@ -211,20 +218,22 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
 
     private boolean conte_existe(){
         listaConte.clear();
+        Boolean r = false;
+        if(!crud.LatLng().equalsIgnoreCase("")){
+            String [] cargarDatos=crud.LatLng().split("/");
 
-        if(!crud.LatLng("a","a","a").equalsIgnoreCase("")){
-            String [] cargarDatos=crud.LatLng("a","a","a").split("/");
             for (int i = 0; i < cargarDatos.length; i++) {
                 String datosConte[]=cargarDatos[i].split("<br>");
-                ubiConte conte=new ubiConte();
+                ubiConte conte = new ubiConte();
                 conte.setUbicacion(datosConte[0]);
                 conte.setLatitud(datosConte[1]);
                 conte.setLongitud(datosConte[2]);
                 listaConte.add(conte);
             }
-            return true;
+            Log.d("lat", String.valueOf(listaConte.get(0).getLongitud()));
+            r = true;
         }
-        return false;
+        return r;
     }
-
+}
 }

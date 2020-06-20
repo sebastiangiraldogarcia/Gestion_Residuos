@@ -76,53 +76,43 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMapReady(@NonNull final MapboxMap mapboxMap) {
-                mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
-                    @Override
-                    public void onStyleLoaded(@NonNull Style style) {
+            public void onMapReady(@NonNull final MapboxMap mapboxMap) {//start
 
-                        // Map is set up and the style has loaded. Now you can add data or make other map adjustments.
+                new LatLng(getActivity()).execute();
 
-                    }
-                    public void onMapReady (Mapbox mapbox) {
-                        //start
+                List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
+                symbolLayerIconFeatureList.add(Feature.fromGeometry(Point.fromLngLat(-57.225365, -33.213144)));
+                for (int i = 0; i < listaConte.size(); i++) {
+                    symbolLayerIconFeatureList.add(Feature.fromGeometry(
+                            Point.fromLngLat(Double.parseDouble(listaConte.get(i).getLongitud()),
+                                    Double.parseDouble(listaConte.get(i).getLatitud()))));
+                }
+                mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/mapbox/cjf4m44iw0uza2spb3q0a7s41")
 
-                        new LatLng(getActivity()).execute();
-
-                        List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
-                        symbolLayerIconFeatureList.add(Feature.fromGeometry(Point.fromLngLat(-57.225365, -33.213144)));
-                        for (int i = 0; i <= listaConte.size(); i++) {
-                            symbolLayerIconFeatureList.add(Feature.fromGeometry(
-                            Point.fromLngLat(Double.parseDouble(listaConte.get(i).getLatitud()),Double.parseDouble(listaConte.get(i).getLongitud()))));
-                        }
-                        mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/mapbox/cjf4m44iw0uza2spb3q0a7s41")
-
-                                // Add the SymbolLayer icon image to the map style
-                                .withImage(ICON_ID, BitmapFactory.decodeResource(
+                        // Add the SymbolLayer icon image to the map style
+                        .withImage(ICON_ID, BitmapFactory.decodeResource(
                                 getActivity().getResources(), R.drawable.mapbox_marker_icon_default))
 
-                                // Adding a GeoJson source for the SymbolLayer icons.
-                                .withSource(new GeoJsonSource(SOURCE_ID,
-                                        FeatureCollection.fromFeatures(symbolLayerIconFeatureList)))
+                        // Adding a GeoJson source for the SymbolLayer icons.
+                        .withSource(new GeoJsonSource(SOURCE_ID,
+                                FeatureCollection.fromFeatures(symbolLayerIconFeatureList)))
 
 
-                                // Adding the actual SymbolLayer to the map style. An offset is added that the bottom of the red
-                                // marker icon gets fixed to the coordinate, rather than the middle of the icon being fixed to
-                                // the coordinate point. This is offset is not always needed and is dependent on the image
-                                // that you use for the SymbolLayer icon.
-                                .withLayer(new SymbolLayer(LAYER_ID, SOURCE_ID)
-                                        .withProperties(iconImage(ICON_ID),
-                                                iconAllowOverlap(true),
-                                                iconOffset(new Float[] {0f, -9f}))
-                                ), new Style.OnStyleLoaded() {
-                            @Override
-                            public void onStyleLoaded(@NonNull Style style) {
-                            // Map is set up and the style has loaded. Now you can add additional data or make other map adjustments.
-                            }
-                        });                        
-                        //end
+                        // Adding the actual SymbolLayer to the map style. An offset is added that the bottom of the red
+                        // marker icon gets fixed to the coordinate, rather than the middle of the icon being fixed to
+                        // the coordinate point. This is offset is not always needed and is dependent on the image
+                        // that you use for the SymbolLayer icon.
+                        .withLayer(new SymbolLayer(LAYER_ID, SOURCE_ID)
+                                .withProperties(iconImage(ICON_ID),
+                                        iconAllowOverlap(true),
+                                        iconOffset(new Float[] {0f, -9f}))
+                        ), new Style.OnStyleLoaded() {
+                    @Override
+                    public void onStyleLoaded(@NonNull Style style) {
+                        // Map is set up and the style has loaded. Now you can add additional data or make other map adjustments.
                     }
                 });
+                //end
             }
         });
 

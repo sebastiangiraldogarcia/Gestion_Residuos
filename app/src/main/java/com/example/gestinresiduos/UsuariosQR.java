@@ -41,12 +41,12 @@ public class UsuariosQR extends AppCompatActivity implements View.OnClickListene
         btScan1.setOnClickListener(this);
 
         //btEliminar1 = findViewById(R.id.btEliminar);
-        btEliminar1.setOnClickListener(this);
+        //btEliminar1.setOnClickListener(this);
 
         insertar = findViewById(R.id.insertar);
 
         //btGuardar1 = findViewById(R.id.btGuardar);
-        btGuardar1.setOnClickListener(this);
+        //btGuardar1.setOnClickListener(this);
 
         etUbicacion = findViewById(R.id.etUbicacion);
 
@@ -56,6 +56,7 @@ public class UsuariosQR extends AppCompatActivity implements View.OnClickListene
 
         crud = new CRUDResi();
         user = getIntent().getStringExtra("user");
+
 
 //Insertamos un residuo.
         insertar=(Button)findViewById(R.id.insertar);
@@ -142,7 +143,6 @@ public class UsuariosQR extends AppCompatActivity implements View.OnClickListene
     private boolean idConte_existe(){
 
         String Ubicacion = etUbicacion.getText().toString().trim();
-        Log.d("rol", Ubicacion);
 
         if(!crud.buscarIdConte(Ubicacion, color).equalsIgnoreCase("")){
             String [] cargarDatos=crud.buscarIdConte(Ubicacion, color).split("/");
@@ -182,6 +182,13 @@ public class UsuariosQR extends AppCompatActivity implements View.OnClickListene
                         // TODO Auto-generated method stub
                         new UsuariosQR.Insertar(UsuariosQR.this).execute();
                         new UsuariosQR.EditarConte(UsuariosQR.this).execute();
+
+                        Log.d("rol", etMaterial1.getText().toString().trim());
+                        Log.d("rol", etLiquido1.getText().toString().trim());
+                        Log.d("rol", idConte);
+                        Log.d("rol", user);
+                        Log.d("rol", String.valueOf(peso));
+
                     }
                 });
             else

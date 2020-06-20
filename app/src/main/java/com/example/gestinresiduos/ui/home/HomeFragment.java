@@ -35,6 +35,7 @@ public class HomeFragment extends Fragment {
     private Spinner spinnerLiquido;
     private Spinner spinnerPeso;
     private Button insertar;
+    private Button insertarQR;
 
     private String user;
     private String rol;
@@ -89,6 +90,15 @@ public class HomeFragment extends Fragment {
         color = "sin info";
         peso = 0;
 
+        insertarQR=(Button) view.findViewById(R.id.qr);
+        insertarQR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), UsuariosQR.class);
+                i.putExtra("user", user.trim());
+                startActivity(i);
+            }
+        });
 
 
         //Insertamos un residuo.

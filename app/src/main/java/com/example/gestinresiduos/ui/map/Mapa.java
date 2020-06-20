@@ -84,7 +84,6 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
             @Override
             public void onMapReady(@NonNull final MapboxMap mapboxMap) {//start
                 List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
-                symbolLayerIconFeatureList.add(Feature.fromGeometry(Point.fromLngLat(-76.522545, 3.353678)));
                 for (int i = 0; i < listaConte.size(); i++) {
                     symbolLayerIconFeatureList.add(Feature.fromGeometry(
                             Point.fromLngLat(Double.parseDouble(listaConte.get(i).getLongitud()),

@@ -1,6 +1,7 @@
 package com.example.gestinresiduos;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 
@@ -9,6 +10,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.mapbox.mapboxsdk.Mapbox;
 
+import androidx.constraintlayout.widget.Group;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -59,13 +61,15 @@ public class MainActivity extends AppCompatActivity {
             admin = p.getString("rol");
             user = p.getString("user");
         }
+
         if(admin.equals("Usuario")) {
-            m = navigationView.getMenu();
-            m.setGroupVisible(R.id.group_admin, false);
+            Log.e("roll", admin);
+            navigationView.getMenu().setGroupVisible(R.id.group_admin,false);//to hide
+            //m = navigationView.getMenu();
+            //m.setGroupVisible(R.id.group_admin, false);
         }
         else {
-            m = navigationView.getMenu();
-            m.setGroupVisible(R.id.group_admin, true);
+            navigationView.getMenu().setGroupVisible(R.id.group_admin,true);//to hide
         }
     }
 

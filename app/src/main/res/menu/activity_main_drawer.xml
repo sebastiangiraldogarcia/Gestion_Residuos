@@ -15,19 +15,22 @@
             android:title="@string/menu_mapa"/>
     </group>
 
-    <item android:title="Administración">
-        <menu>
-            <group  android:checkableBehavior="single"
-                android:id="@+id/group_admin">
-                <item
-                    android:id="@+id/nav_slideshow"
-                    android:icon="@drawable/ic_menu_slideshow"
-                    android:title="Administrar cuentas" />
-                <item
-                    android:id="@+id/nav_contenedores"
-                    android:icon="@drawable/ic_build_black_24dp"
-                    android:title="Contenedores"/>
-            </group>
-        </menu>
-    </item>
+    <group
+        android:id="@+id/group_admin">
+        <item android:title="Administración">
+            <menu>
+                <group  android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/nav_slideshow"
+                        android:icon="@drawable/ic_menu_slideshow"
+                        android:title="Administrar cuentas" />
+                    <item
+                        android:id="@+id/nav_contenedores"
+                        android:icon="@drawable/ic_build_black_24dp"
+                        android:title="Contenedores"/>
+                </group>
+            </menu>
+        </item>
+    </group>
+
 </menu>

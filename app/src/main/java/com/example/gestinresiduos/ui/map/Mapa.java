@@ -2,8 +2,14 @@ package com.example.gestinresiduos.ui.map;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.graphics.BitmapFactory;
+
+import com.example.gestinresiduos.clases.Contenedores;
+import com.example.gestinresiduos.clases.ubiConte;
+import com.example.gestinresiduos.crud.CRUDUbiConte;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
@@ -14,7 +20,6 @@ import com.mapbox.mapboxsdk.maps.Style;
 import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.FeatureCollection;
 import com.mapbox.geojson.Point;
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 
@@ -25,6 +30,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.gestinresiduos.R;
 
@@ -32,7 +38,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconAllowOverlap;
-import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconIgnorePlacement;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconImage;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconOffset;
 
@@ -54,6 +59,14 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
     private static final String ICON_ID = "ICON_ID";
     private static final String LAYER_ID = "LAYER_ID";
 
+    private EditText ubicacion;
+    private EditText latitud;
+    private EditText longitud;
+    private List<ubiConte> listaConte;
+    private CRUDUbiConte crud;
+
+    private int posicion=0;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -73,6 +86,9 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
                     }
                     public void onMapReady (Mapbox mapbox) {
                         //start
+
+                        new LatLng(getActivity()).execute();
+
                         List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
                         symbolLayerIconFeatureList.add(Feature.fromGeometry(
                                 Point.fromLngLat(-57.225365, -33.213144)));
@@ -163,5 +179,37 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
     @Override
     public void onMapReady(@NonNull final MapboxMap mapboxMap) {
         
+    }
+
+    //AsyncTask para buscar Contenedor
+    class LatLng extends AsyncTask<String,String,String> {
+
+        private Activity context;
+
+        LatLng(Activity context) {
+            this.context = context;
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            // TODO Auto-generated method stub
+
+            if (conte())
+                context.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        conte(posicion);
+                    }
+                });
+            else
+                context.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                });
+            return null;
+        }
     }
 }

@@ -36,7 +36,9 @@ public class Login extends AppCompatActivity {
     private EditText user;
     private EditText pass;
     private Button enter;
+
     private List<Usuarios> listaUsers;
+
     Bundle bundle = new Bundle();
 
 
@@ -148,7 +150,6 @@ public class Login extends AppCompatActivity {
                             startActivity(i);
                         }else{
                             Intent i = new Intent(Login.this, MainActivity.class);
-                            i.putExtra("rol",listaUsers.get(0).getRol().trim());
                             i.putExtra("user", listaUsers.get(0).getUsername().trim());
                             bundle.putString("user", "From Login");
                             startActivity(i);

@@ -52,8 +52,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        admin = getIntent().getStringExtra("rol");
-        user = getIntent().getStringExtra("user");
+        Bundle p = getIntent().getExtras();
+        admin = p.getString("rol");
+        user = p.getString("user");
 
         if(admin.equals("Administrador")) {
             navigationView.getMenu().setGroupVisible(R.id.group_admin, true);

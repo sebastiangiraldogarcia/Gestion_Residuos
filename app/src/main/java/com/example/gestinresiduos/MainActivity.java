@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         if(admin.equals("Administrador")) {
             navigationView.getMenu().setGroupVisible(R.id.group_admin, true);
         }
+        else {
+            navigationView.getMenu().setGroupVisible(R.id.group_admin, false);
+        }
     }
 
     @Override

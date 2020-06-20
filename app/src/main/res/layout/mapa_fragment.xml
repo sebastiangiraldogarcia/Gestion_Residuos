@@ -22,11 +22,7 @@
         <com.mapbox.mapboxsdk.maps.MapView
             android:id="@+id/map1"
             android:layout_width="match_parent"
-            android:layout_height="550dp"
-            mapbox:mapbox_cameraTrgetLat="3.353693"
-            mapbox:mapbox_cameraTargetLng="-76.522872"
-            mapbox:mapbox_cameraZoom="12"
-            mapbox:mapbox_styleUrl="mapbox://styles/mapbox/streets-v10"/>
+            android:layout_height="550dp"/>
 
     </LinearLayout>
 </FrameLayout>

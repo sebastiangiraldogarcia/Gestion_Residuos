@@ -90,10 +90,10 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
                         new LatLng(getActivity()).execute();
 
                         List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
+                        symbolLayerIconFeatureList.add(Feature.fromGeometry(Point.fromLngLat(-57.225365, -33.213144)));
                         for (int i = 0; i <= listaConte.size(); i++) {
                             symbolLayerIconFeatureList.add(Feature.fromGeometry(
-                        //Point.fromLngLat(-57.225365, -33.213144)));
-                                Point.fromLngLat(Double.parseDouble(listaConte.get(i).getLatitud()),Double.parseDouble(listaConte.get(i).getLongitud()))));
+                            Point.fromLngLat(Double.parseDouble(listaConte.get(i).getLatitud()),Double.parseDouble(listaConte.get(i).getLongitud()))));
                         }
                         mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/mapbox/cjf4m44iw0uza2spb3q0a7s41")
 

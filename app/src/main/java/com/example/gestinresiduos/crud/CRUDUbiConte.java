@@ -20,7 +20,7 @@ import java.util.List;
 public class CRUDUbiConte {
 
     //Consulta la LatLng de un contenedor.
-    public String LatLng(){
+    public String LatLng(String ubicacion, String latitud, String longitud){
         String resquest="";
         HttpClient httpClient;
         List<NameValuePair> nameValuePairs;
@@ -28,7 +28,13 @@ public class CRUDUbiConte {
         httpClient = new DefaultHttpClient();
         httpPost = new HttpPost(Ruta.URL + "contenedores/LatLng_conte.php");
 
+        nameValuePairs = new ArrayList<NameValuePair>(3);
+        nameValuePairs.add(new BasicNameValuePair("ubicacion",ubicacion.trim()));
+        nameValuePairs.add(new BasicNameValuePair("latitud",latitud.trim()));
+        nameValuePairs.add(new BasicNameValuePair("longitud",longitud.trim()));
+
         try {
+            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
             ResponseHandler<String> responseHandler = new BasicResponseHandler();
             resquest = httpClient.execute(httpPost, responseHandler);
         } catch (UnsupportedEncodingException e){

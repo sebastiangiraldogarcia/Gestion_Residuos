@@ -73,8 +73,6 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.mapa_fragment, container, false);
 
-        listaConte=new ArrayList<ubiConte>();
-        crud=new CRUDUbiConte();
         listaConte = new ArrayList<ubiConte>();
         crud = new CRUDUbiConte();
 
@@ -84,16 +82,9 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMapReady(@NonNull final MapboxMap mapboxMap) {
-                //start
-
-                List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
-                symbolLayerIconFeatureList.add(Feature.fromGeometry(Point.fromLngLat(-76.522545, 3.3522579)));
-
             public void onMapReady(@NonNull final MapboxMap mapboxMap) {//start
                 List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
                 symbolLayerIconFeatureList.add(Feature.fromGeometry(Point.fromLngLat(-76.522545, 3.353678)));
-
                 for (int i = 0; i < listaConte.size(); i++) {
                     symbolLayerIconFeatureList.add(Feature.fromGeometry(
                             Point.fromLngLat(Double.parseDouble(listaConte.get(i).getLongitud()),
@@ -235,5 +226,5 @@ public class Mapa extends Fragment implements OnMapReadyCallback{
         }
         return r;
     }
-}
+
 }
